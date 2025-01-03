@@ -1,0 +1,23 @@
+<div class="super-dashboard-container">
+  <div class="super-dashboard-card-group">
+    @for(dashboard of dashboardList; track dashboard){
+    <mat-card matRipple class="dashboardListCard super-curs-pointer">
+      <mat-card-content>
+        <div class="dashboard-group flex-column-between super-gap-1">
+          <h2 class="super-text-primary super-fs-medium super-margin-y-1">{{dashboard?.title}}</h2>
+          <p class="super-text-line-limit-3 super-margin-y-1">{{dashboard?.description}}</p>
+          <div class="dashboard-status-group flex-row-start-center super-margin-y-1">
+            <div class="dashboard-priority-status super-priority-tag {{dashboard?.priority}}">
+              <h3 class="tag-text">{{dashboard?.priority | titlecase}}</h3>
+            </div>
+            <div class="dashboard-status super-status-tag {{dashboard?.status}}">
+              <h3 class="tag-text">{{dashboard?.status | titlecase}}</h3>
+            </div>
+          </div>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+    }
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="super-input-form-field-style" [formGroup]="superInputFormGroup">
+  <mat-form-field [appearance]="superInputAppearance">
+    <mat-icon matPrefix *ngIf="superInputPrefixIconShow" [fontIcon]="superInputPrefixIcon"></mat-icon>
+    <mat-label *ngIf="superInputLabelShow">{{superInputLabel}}</mat-label>
+    <input matInput [type]="superInputType" [placeholder]="superInputPlaceholder" [value]="superInputValue"
+      [formControlName]="superInputFormControlName">
+    <mat-icon matSuffix *ngIf="superInputSuffixIconShow" [fontIcon]="superInputSuffixIcon"
+      (click)="superInputSuffixIconEvent && superInputSuffixIconEvent()"></mat-icon>
+  </mat-form-field>
+  <ng-container *ngIf="superInputErrorShow">
+    <super-error
+      *ngIf="superInputFormGroup.get(superInputFormControlName)?.touched && superInputFormGroup.get(superInputFormControlName)?.errors"
+      [superErrorMsg]="superInputErrorText"></super-error>
+  </ng-container>
+
+</div>

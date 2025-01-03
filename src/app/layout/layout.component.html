@@ -1,0 +1,10 @@
+<div class="layout-container">
+  <sidenav [toggleSidenavStatus]="toggleSidenav"></sidenav>
+  <div class="layout-section-group">
+    <search-bar (toggleSidenavStatus)="emittoggleStatus($event)"></search-bar>
+    <div class="layout-entry">
+      <!-- Entry Outlet for Pages -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

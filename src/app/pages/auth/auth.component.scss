@@ -1,0 +1,46 @@
+@use 'break-point' as *;
+
+.auth-container {
+  height: 100vh;
+  width: 100%;
+  background-color: var(--super-theme-default-app-bg-color);
+
+  .auth-login-register-group {
+    width: 90%;
+
+    .auth-card {
+      border-radius: 50px !important;
+
+      .mat-mdc-card-content {
+        padding: 0px !important;
+      }
+
+      .auth-card-section-group {
+
+        .auth-form-group {
+          width: 60% !important;
+          padding: 1rem;
+
+          @include screen-is(mobile) {
+            width: 90% !important;
+          }
+        }
+
+        .auth-carousel-container {
+          background-color: var(--super-theme-default-auth-carousel-bg) !important;
+          border-top-right-radius: 50px !important;
+          border-bottom-right-radius: 50px !important;
+
+        }
+
+        .auth-carousel-group {
+          padding: 1rem;
+        }
+
+      }
+
+    }
+
+  }
+
+}

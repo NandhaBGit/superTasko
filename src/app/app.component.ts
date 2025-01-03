@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { SuperLoaderComponent } from './shared/super-loader/super-loader.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, SuperLoaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

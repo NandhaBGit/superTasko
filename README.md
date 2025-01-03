@@ -12,48 +12,47 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+## About Project 
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Super Tasko: Comprehensive Task Management Application
 
-```bash
-ng generate component component-name
-```
+Super Tasko is a modern task management application designed to simplify workflows and improve productivity across devices. It offers a clean and user-friendly interface, with a focus on reusability, state management, and branding consistency. Below is an overview of its key features and architecture:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. Core Features
+User Authentication: Includes Login and Register pages to handle user authentication securely.
+Dashboard: Provides a centralized view of user activities and task progress.
+Project Management: Built using NgRx for efficient state management, ensuring seamless interactions and scalability.
+Reusable Components: Input components are shared across the application, enabling consistent styling and functionality.
+Dark and Light Modes: Offers both visual themes, allowing users to choose their preferred mode for better usability.
+Drak & drop: offers ease of shuffling the project data from completed to pending and vice versa.
 
-```bash
-ng generate --help
-```
+2. Design and Responsiveness
+Responsive Styling with Mixins: The application leverages mixins for device-specific responsive styles, ensuring an optimal experience across mobile, tablet, and desktop devices.
+Device Detection: A common service includes utility methods like isMobile, isTablet, and isDesktop to dynamically adjust templates based on the device being used.
 
-## Building
+3. Branding and Customization
+Brand Identity: The logo for Super Tasko is represented by the letter "S", symbolizing simplicity and strength in task management.
+Text Management: A centralized branding folder (/assets/branding/text-branding.json) houses all textual content, such as titles, paragraphs, menu lists, and other UI texts, making it easy to maintain consistency and update content.
 
-To build the project run:
+4. Technology Stack
+NgRx State Management: Ensures predictable state transitions, particularly on the project page, allowing for robust data handling and scalability.
+Shared Module: Facilitates the reuse of UI components, reducing code duplication and improving maintainability.
+Dark/Light Mode Switching: Implements a smooth toggle between themes for better visual accessibility.
 
-```bash
-ng build
-```
+5. Scalability and Maintainability
+Reusability: Shared input components and centralized text management ensure efficient code reuse and consistent design.
+Dynamic Templates: Device-specific utilities enable conditional rendering, optimizing the user experience across devices.
+Conclusion
+Super Tasko is a thoughtfully designed application that combines state-of-the-art technology, reusability, and branding consistency. With features like responsive design, reusable inputs, centralized text management, and dynamic device handling, it is an ideal solution for task management in diverse environments.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+This professional structure highlights the thoughtfulness and engineering excellence behind your project, emphasizing its usability, scalability, and user-centric design.
 
-## Running unit tests
+![Login Page](image.png)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+![Register Page](image-1.png)
 
-```bash
-ng test
-```
+![Dark Mode Dashboard Page](image-2.png)
 
-## Running end-to-end tests
+![Light Mode project page](image-3.png)
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+![Mobile Mode responsive sidenav](image-4.png)

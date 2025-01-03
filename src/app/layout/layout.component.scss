@@ -1,0 +1,14 @@
+@use 'break-point' as *;
+
+.layout-container {
+  display: grid;
+  grid-template-columns: 20% 2fr;
+  gap: 1rem;
+  overflow: hidden;
+
+  @include screen-is(mobile) {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 0px;
+  }
+}

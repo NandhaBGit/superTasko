@@ -1,0 +1,115 @@
+@use 'break-point' as *;
+
+
+.super-search-bar-container {
+  margin: 2rem;
+  margin-left: 1rem !important;
+
+  .super-search-bar-card {
+
+
+    .super-search-menu-mobile {
+
+      .super-logo-mobile {
+        @include screen-is(mobile) {
+          width: 80px;
+          height: 80px;
+        }
+
+      }
+
+
+      .super-sidenav-button {
+        mat-icon {
+          color: var(--mat-sys-surface) !important;
+        }
+      }
+    }
+
+
+    .super-search-group {
+
+      .super-search {
+        .mdc-text-field {
+          border-radius: 18px !important;
+          background-color: var(--super-theme-search-bar-bg-color) !important;
+        }
+
+        .mdc-text-field--focused {
+          width: 40rem;
+        }
+
+        .mat-mdc-form-field-subscript-wrapper {
+          display: none !important;
+        }
+
+        .mdc-line-ripple {
+          opacity: 0;
+        }
+
+        .mdc-line-ripple--active {
+          opacity: 1;
+        }
+
+        mat-icon,
+        label {
+          color: var(--super-theme-search-bar-label-color);
+        }
+
+        .mat-mdc-form-field-infix {
+          [type="search"]::-webkit-search-cancel-button {
+            -webkit-appearance: none;
+            background-color: var(--super-theme-color-secondary) !important;
+            -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23777'><path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>");
+            background-size: 20px 20px;
+            height: 20px;
+            width: 20px;
+          }
+
+          input {
+            color: var(--super-thme-search-bar-input-text-color);
+          }
+        }
+
+      }
+
+      .super-search-options {
+        gap: 20px;
+
+        .mdc-label {
+          font-weight: 500 !important;
+        }
+
+        img {
+          filter: var(--super-theme-profile-logo-color);
+        }
+
+        .super-search-profile-group {
+          .super-search-profile {
+            height: 3rem;
+            width: 3rem;
+            border-radius: 50%;
+            background-color: var(--super-theme-profile-bg-color);
+
+            img {
+              height: 2rem;
+            }
+          }
+
+        }
+
+      }
+    }
+  }
+}
+
+
+.mat-mdc-menu-panel {
+  box-shadow: var(--super-theme-profile-menu-card-box-shadow) 0px 8px 24px !important;
+  background-color: var(--mat-sys-surface-container-low) !important;
+}
+
+.mat-mdc-menu-content {
+  min-width: 10rem;
+  background-color: var(--mat-sys-surface-container-low) !important;
+}

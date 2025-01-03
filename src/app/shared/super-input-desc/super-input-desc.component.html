@@ -1,0 +1,13 @@
+<div class="super-input-form-field-style" [formGroup]="superInputDescFormGroup">
+  <mat-form-field [appearance]="superInputDescAppearance">
+    <mat-label *ngIf="superInputDescLabelShow">{{superInputDescLabel}}</mat-label>
+    <textarea matInput [formControlName]="superInputDescFormControlName"
+      [placeholder]="superInputDescPlaceholder"></textarea>
+  </mat-form-field>
+  <ng-container *ngIf="superInputDescErrorShow">
+    <super-error
+      *ngIf="superInputDescFormGroup.get(superInputDescFormControlName)?.touched && superInputDescFormGroup.get(superInputDescFormControlName)?.errors"
+      [superErrorMsg]="superInputDescErrorText"></super-error>
+  </ng-container>
+
+</div>

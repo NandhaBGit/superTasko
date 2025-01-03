@@ -1,0 +1,215 @@
+{
+  "common": {
+    "cancel_btn": "cancel",
+    "submit_btn": "Submit"
+  },
+  "auth": {
+    "gridRowHeight": "34rem",
+    "cols": "2",
+    "login": {
+      "title": "Login",
+      "register_nav": {
+        "text": "Don't have an account?",
+        "nav_text": "Sign Up"
+      },
+      "input_label_1": "Username",
+      "input_label_2": "Password",
+      "btn_label": "Login"
+    },
+    "register": {
+      "title": "Register",
+      "login_nav": {
+        "text": "Back to Sign In",
+        "nav_text": "Click here"
+      },
+      "input_label_1": "username",
+      "input_label_2": "password",
+      "input_label_3": "Confirm password",
+      "btn_label": "Register"
+    },
+    "carousel_images": {
+      "src": "/images/auth/2.svg",
+      "src_alternate": "/images/auth/1.svg",
+      "alt": "taskmgmt1",
+      "width": "100%",
+      "height": "100%"
+    }
+  },
+  "layout": {
+    "sidenav": {
+      "logo": {
+        "src": "images/logo.svg",
+        "alt": "logo",
+        "style": {
+          "width": "80px",
+          "height": "80px"
+        }
+      },
+      "menus": [
+        {
+          "name": "Dashboard",
+          "icon": "dashboard",
+          "key": "dashboard",
+          "status": true
+        },
+        {
+          "name": "Projects",
+          "icon": "emoji_objects",
+          "key": "project",
+          "status": true
+        },
+        {
+          "name": "My Task",
+          "icon": "checklist_rtl",
+          "key": "mytask",
+          "status": false
+        }
+      ]
+    },
+    "search": {
+      "toggleDarkMode": {
+        "label": "Dark Mode",
+        "status": true
+      },
+      "input_label_1": "search",
+      "profile": {
+        "status": true,
+        "options": [
+          {
+            "name": "Profile",
+            "icon": "account_circle"
+          },
+          {
+            "name": "Sign Out",
+            "icon": "logout",
+            "route": "login"
+          }
+        ]
+      }
+    },
+    "project": {
+      "pending_title": "Pending",
+      "completed_title": "Completed",
+      "pending_data": [
+        {
+          "title": "Fang International",
+          "description": "Fang International industrial",
+          "priority": "low",
+          "due_Date": "4/1/25",
+          "status": "pending",
+          "actions": {
+            "edit": false,
+            "delete": true
+          }
+        },
+        {
+          "title": "Zebronics",
+          "description": "Zebronics is an Indian Audio/Video, IT & Gaming Peripherals, Mobile/ Lifestyle Accessories, Smart Home, Power & Surveillance Solutions brand with a mission to provide products which are Great on design, performance yet so easy on pocket, that every household in the country can afford",
+          "priority": "medium",
+          "due_Date": "12/1/25",
+          "status": "pending",
+          "actions": {
+            "edit": false,
+            "delete": true
+          }
+        },
+        {
+          "title": "Boat",
+          "description": "Boat, also known as boAt Lifestyle, is an Indian consumer electronics brand. It is not a Chinese company. Boat specializes in manufacturing and selling a wide range of audio products, including headphones, earphones, speakers, and accessories. The company was founded in India and has its headquarters in Mumbai.",
+          "priority": "high",
+          "due_Date": "12/1/25",
+          "status": "pending",
+          "actions": {
+            "edit": false,
+            "delete": true
+          }
+        },
+        {
+          "title": "MSI",
+          "description": "As a world leading gaming brand, MSI is the most trusted name in gaming and eSports. We've dedicated countless hours and numerous resources to the eSports community to support the world's most aspiring gamers and leverage their gaming expertise to optimize our product design.",
+          "priority": "high",
+          "due_Date": "12/1/25",
+          "status": "pending",
+          "actions": {
+            "edit": false,
+            "delete": true
+          }
+        }
+      ],
+      "completed_data": [
+        {
+          "title": "Songwe",
+          "description": "Songwe is centralized data managment cloud company",
+          "priority": "medium",
+          "due_Date": "05/06/25",
+          "status": "completed",
+          "actions": {
+            "edit": false,
+            "delete": true
+          }
+        },
+        {
+          "title": "Decor Electronics",
+          "description": "Decor Electronics",
+          "priority": "low",
+          "due_Date": "10/06/25",
+          "status": "completed"
+        },
+        {
+          "title": "Google cloud",
+          "description": "Google Cloud is a suite of cloud computing services that runs on the same infrastructure that Google uses internally for their own consumer products, such as Google Search, Gmail, and YouTube.",
+          "priority": "medium",
+          "due_Date": "11/06/25",
+          "status": "completed",
+          "actions": {
+            "edit": false,
+            "delete": true
+          }
+        },
+        {
+          "title": "Youtube",
+          "description": "Youtube is a popular video-sharing platform that allows registered users to upload videos of their own as well as to watch videos posted by other users. There is a wide range of videos available to watch provided by people from all around the world with different backgrounds.",
+          "priority": "medium",
+          "due_Date": "8/06/25",
+          "status": "completed",
+          "actions": {
+            "edit": false,
+            "delete": true
+          }
+        }
+      ],
+      "add_edit": {
+        "title": "Project",
+        "input_label_1": "Title",
+        "input_label_2": "Description",
+        "input_label_3": "Priority",
+        "input_label_4": "Due Date",
+        "input_label_5": "Status",
+        "priority": [
+          {
+            "name": "High",
+            "value": "high"
+          },
+          {
+            "name": "Medium",
+            "value": "medium"
+          },
+          {
+            "name": "low",
+            "value": "low"
+          }
+        ],
+        "status": [
+          {
+            "name": "Pending",
+            "value": "pending"
+          },
+          {
+            "name": "Completed",
+            "value": "completed"
+          }
+        ]
+      }
+    }
+  }
+}

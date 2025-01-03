@@ -1,0 +1,28 @@
+<div class="register-form-group super-form-default-style">
+  <h1 class="text-center super-text-primary" [innerHtml]="staticText?.auth?.register?.title"></h1>
+  <form class="flex-column-between" [formGroup]="registerForm">
+    <super-input [superInputFormGroup]="registerForm" superInputFormControlName="username"
+      [superInputLabel]="staticText?.auth?.login?.input_label_1" [superInputPrefixIconShow]="true"
+      superInputPrefixIcon="account_circle" [superInputPlaceholder]="staticText?.auth?.register?.input_label_1"
+      [superInputErrorText]="registerForm.get('username')?.errors?.['validation_msg']"></super-input>
+
+    <super-input [superInputFormGroup]="registerForm" superInputFormControlName="password"
+      [superInputLabel]="staticText?.auth?.register?.input_label_2"
+      [superInputType]="_common.togglePasswordType ? 'text' : 'password'"
+      [superInputPlaceholder]="staticText?.auth?.register?.input_label_2" [superInputSuffixIconShow]="true"
+      [superInputSuffixIcon]="_common.togglePasswordType ? 'visibility' : 'visibility_off'"
+      [superInputSuffixIconEvent]="_common.togglePassword"
+      [superInputErrorText]="registerForm.get('password')?.errors?.['validation_msg']"></super-input>
+
+    <super-input [superInputFormGroup]="registerForm" superInputFormControlName="confirm_password"
+      [superInputLabel]="staticText?.auth?.register?.input_label_3"
+      [superInputType]="_common.toggleConfirmPasswordType ? 'text' : 'password'"
+      [superInputPlaceholder]="staticText?.auth?.register?.input_label_3" [superInputSuffixIconShow]="true"
+      [superInputSuffixIcon]="_common.toggleConfirmPasswordType ? 'visibility' : 'visibility_off'"
+      [superInputSuffixIconEvent]="_common.toggleConfirmPassword"
+      [superInputErrorText]="registerForm.get('confirm_password')?.errors?.['validation_msg']"></super-input>
+
+    <super-button [superButtonLabel]="staticText?.auth?.register?.btn_label"
+      (superButtonEvent)="submit()"></super-button>
+  </form>
+</div>

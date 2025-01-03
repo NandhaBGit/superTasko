@@ -1,0 +1,26 @@
+<ng-container [ngSwitch]="superButtonType">
+  <ng-container *ngSwitchCase="buttonTypeProps.BASIC">
+    <button class="w-100" [class]="superButtonCustomClass" mat-button [innerHTML]="superButtonLabel"
+      (click)="superButtonAction()"></button>
+  </ng-container>
+  <ng-container *ngSwitchCase="buttonTypeProps.RAISED">
+    <button class="w-100" [class]="superButtonCustomClass" mat-raised-button [innerHTML]="superButtonLabel"
+      (click)="superButtonAction()"></button>
+
+  </ng-container>
+  <ng-container *ngSwitchCase="buttonTypeProps.FLAT">
+    <button class="w-100" [class]="superButtonCustomClass" mat-flat-button [innerHTML]="superButtonLabel"
+      (click)="superButtonAction()"></button>
+
+  </ng-container>
+  <ng-container *ngSwitchCase="buttonTypeProps.STROKED">
+    <button class="w-100" [class]="superButtonCustomClass" mat-stroked-button [innerHTML]="superButtonLabel"
+      (click)="superButtonAction()"></button>
+
+  </ng-container>
+  <ng-container *ngSwitchCase="buttonTypeProps.ICON">
+    <button class="w-100" [class]="superButtonCustomClass" mat-icon-button (click)="superButtonAction()">
+      <mat-icon>{{superButtonIcon}}</mat-icon>
+    </button>
+  </ng-container>
+</ng-container>

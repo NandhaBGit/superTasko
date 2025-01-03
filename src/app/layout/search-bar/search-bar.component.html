@@ -1,0 +1,63 @@
+<div class="super-search-bar-container">
+  <mat-card class="super-search-bar-card">
+    <mat-card-content>
+      <!-- Mobile Mode -->
+      <ng-container *ngIf="_common.isMobile();else renderDesktopTabletView">
+        <div class="super-search-menu-mobile flex-row-between-center">
+          <img class="super-logo-mobile" [src]="staticText?.layout?.sidenav?.logo?.src"
+            [alt]="staticText?.layout?.sidenav?.logo?.alt">
+
+          <div class="super-search-menu-mobile flex-row-between-center super-gap-1">
+            <mat-icon class="super-fs-large" [fontIcon]="superDarkModestatus ? 'dark_mode' : 'light_mode'"
+              (click)="toggleDarkMode()"></mat-icon>
+            <mat-icon class="super-fs-large" [fontIcon]="'search'"></mat-icon>
+            <button mat-mini-fab class="super-sidenav-button" (click)="toggleSideNavMobile()">
+              <mat-icon [fontIcon]="toggleMenu ? 'close_fullscreen' :'menu'"></mat-icon>
+            </button>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- Desktop / Tablet mode -->
+      <ng-template #renderDesktopTabletView>
+        <div class="super-search-group flex-row-between-center">
+
+          <div class="super-search">
+            <form [formGroup]="searchFormGroup">
+              <super-input [superInputFormGroup]="searchFormGroup" superInputFormControlName="query"
+                [superInputLabel]="staticText?.layout?.search?.input_label_1" [superInputPrefixIconShow]="true"
+                superInputType="search" superInputAppearance="fill" superInputPrefixIcon="search"
+                [superInputPlaceholder]="staticText?.layout?.search?.input_label_1"
+                [superInputErrorShow]="false"></super-input>
+            </form>
+          </div>
+          <div class="super-search-options flex-row-around-center">
+            <mat-slide-toggle class="super-curs-pointer" [(ngModel)]="superDarkModestatus" (click)="toggleDarkMode()"
+              labelPosition="before">
+              <mat-icon [style.color]="'var(--super-theme-Dark-light-mode)'"
+                [fontIcon]="superDarkModestatus ? 'dark_mode' : 'light_mode'"></mat-icon>&nbsp;
+            </mat-slide-toggle>
+            <mat-icon class="super-fs-large super-curs-pointer" [style.color]="'var(--super-theme-Dark-light-mode)'"
+              fontIcon=" notifications"></mat-icon>
+            <!-- <mat-icon class="super-fs-large super-curs-pointer" [style.color]="'var(--super-theme-Dark-light-mode)'" fontIcon="account_circle"></mat-icon> -->
+            <div class="super-search-profile-group">
+              <div class="super-search-profile super-curs-pointer flex-column-center-center" [matMenuTriggerFor]="menu">
+                <img src="images/user.svg" alt="" width="40" height="40">
+              </div>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item *ngFor="let menu of staticText?.layout?.search?.profile?.options"
+                  (click)="logout(menu)">
+                  <div class="super-search-profile-menus flex-row-start-center">
+                    <mat-icon [fontIcon]="menu?.icon"></mat-icon>
+                    <span>{{menu?.name}}</span>
+                  </div>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+
+    </mat-card-content>
+  </mat-card>
+</div>

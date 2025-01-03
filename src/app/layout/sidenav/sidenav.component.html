@@ -1,0 +1,58 @@
+<div class="super-sidenav-container">
+  <ng-container *ngIf="_common.isMobile();else renderDesktopTabletView">
+    <div class="sidenav-mobile" *ngIf="toggleSidenavStatus">
+      <mat-card class="super-sidenav-card">
+        <mat-card-header class="flex-row-center-center">
+          <div class="super-sidenav-header">
+            <img [src]="staticText?.layout?.sidenav?.logo?.src" [alt]="staticText?.layout?.sidenav?.logo?.alt"
+              [style.width]="staticText?.layout?.sidenav?.logo?.style?.width"
+              [style.height]="staticText?.layout?.sidenav?.logo?.style?.height">
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="super-sidenav-menu-group">
+            @for( menu of staticText?.layout?.sidenav?.menus; track menu){
+            <div class="super-sidenav-menu" *ngIf="menu?.status" [routerLink]="menu?.route"
+              routerLinkActive="super-menu-active">
+              <mat-icon [fontIcon]="menu?.icon"></mat-icon>
+              <span [innerHtml]="menu?.name | uppercase"></span>
+            </div>
+            }
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <div class="super-sidenav-action super-sidenav-menu-group" matRipple (click)="logout()">
+            <div class="super-sidenav-menu">
+              <mat-icon fontIcon="logout"></mat-icon>
+              <span>Logout</span>
+            </div>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </ng-container>
+
+
+  <ng-template #renderDesktopTabletView>
+    <mat-card class="super-sidenav-card">
+      <mat-card-header class="flex-row-center-center">
+        <div class="super-sidenav-header">
+          <img [src]="staticText?.layout?.sidenav?.logo?.src" [alt]="staticText?.layout?.sidenav?.logo?.alt"
+            [style.width]="staticText?.layout?.sidenav?.logo?.style?.width"
+            [style.height]="staticText?.layout?.sidenav?.logo?.style?.height">
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="super-sidenav-menu-group">
+          @for( menu of staticText?.layout?.sidenav?.menus; track menu){
+          <div class="super-sidenav-menu" *ngIf="menu?.status" [routerLink]="menu?.route"
+            routerLinkActive="super-menu-active">
+            <mat-icon [fontIcon]="menu?.icon"></mat-icon>
+            <span [innerHtml]="menu?.name | uppercase"></span>
+          </div>
+          }
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </ng-template>
+</div>

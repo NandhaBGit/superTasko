@@ -1,0 +1,15 @@
+<div class="super-input-form-field-style" [formGroup]="superDateFormGroup">
+  <mat-form-field [appearance]="superDateAppearance">
+    <mat-label *ngIf="superDateLabelShow">{{superDateLabel}}</mat-label>
+    <input matInput [matDatepicker]="superDatePickerElement" [formControlName]="superDateFormControlName"
+      (click)="superDatePickerElement.open()">
+    <mat-hint *ngIf="superDateHintTextShow">{{superDateHintText}}</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="superDatePickerElement"></mat-datepicker-toggle>
+    <mat-datepicker #superDatePickerElement></mat-datepicker>
+  </mat-form-field>
+  <ng-container *ngIf="superDateErrorShow">
+    <super-error
+      *ngIf="superDateFormGroup.get(superDateFormControlName)?.touched && superDateFormGroup.get(superDateFormControlName)?.errors"
+      [superErrorMsg]="superDateErrorText"></super-error>
+  </ng-container>
+</div>

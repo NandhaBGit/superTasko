@@ -1,0 +1,16 @@
+<div class="super-input-form-field-style" [formGroup]="superSelectFormGroup">
+  <mat-form-field [appearance]="superSelectAppearance">
+    <mat-label *ngIf="superSelectLabelShow">{{superSelectLabel}}</mat-label>
+    <mat-select [formControlName]="superSelectFormControlName" >
+      @for (data of superSelectData; track data) {
+      <mat-option [value]="data?.value">{{data?.name}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+  <ng-container *ngIf="superSelectErrorShow">
+    <super-error
+      *ngIf="superSelectFormGroup.get(superSelectFormControlName)?.touched && superSelectFormGroup.get(superSelectFormControlName)?.errors"
+      [superErrorMsg]="superSelectErrorText"></super-error>
+  </ng-container>
+
+</div>

@@ -1,0 +1,48 @@
+<div class="project-add-edit-form-group super-form-default-style">
+  <mat-card-header class="flex-row-between-center super-p-2">
+    <mat-card-title>
+      <h1 class="super-text-primary super-fs-large"
+        [innerHtml]="this.projectFormData.projectEdit ? 'Edit ' + staticText?.layout?.project?.add_edit?.title : 'Add ' + staticText?.layout?.project?.add_edit?.title">
+      </h1>
+    </mat-card-title>
+    <mat-icon class="super-curs-pointer" fontIcon="close" mat-dialog-close></mat-icon>
+  </mat-card-header>
+  <mat-dialog-content class="mat-typography">
+    <form class="flex-column-between" [formGroup]="projectFormGroup">
+      <super-input [superInputFormGroup]="projectFormGroup" superInputFormControlName="title"
+        [superInputLabel]="staticText?.layout?.project?.add_edit?.input_label_1" [superInputPrefixIconShow]="true"
+        superInputPrefixIcon="article" [superInputPlaceholder]="staticText?.layout?.project?.add_edit?.input_label_1"
+        [superInputErrorText]="projectFormGroup.get('title')?.errors?.['validation_msg']"></super-input>
+
+      <super-desc [superInputDescFormGroup]="projectFormGroup" superInputDescFormControlName="description"
+        [superInputDescLabel]="staticText?.layout?.project?.add_edit?.input_label_2"
+        [superInputDescPlaceholder]="staticText?.layout?.project?.add_edit?.input_label_2"
+        [superInputDescErrorText]="projectFormGroup.get('description')?.errors?.['validation_msg']"></super-desc>
+
+      <super-select [superSelectFormGroup]="projectFormGroup" superSelectFormControlName="priority"
+        [superSelectLabel]="staticText?.layout?.project?.add_edit?.input_label_3"
+        [superSelectData]="staticText?.layout?.project?.add_edit?.priority"
+        [superSelectErrorText]="projectFormGroup.get('priority')?.errors?.['validation_msg']"></super-select>
+
+      <super-date [superDateFormGroup]="projectFormGroup" superDateFormControlName="due_Date"
+        [superDateLabel]="staticText?.layout?.project?.add_edit?.input_label_4"
+        [superDateErrorText]="projectFormGroup.get('due_Date')?.errors?.['validation_msg']"></super-date>
+
+      <super-select [superSelectFormGroup]="projectFormGroup" superSelectFormControlName="status"
+        [superSelectLabel]="staticText?.layout?.project?.add_edit?.input_label_5"
+        [superSelectData]="staticText?.layout?.project?.add_edit?.status"
+        [superSelectErrorText]="projectFormGroup.get('status')?.errors?.['validation_msg']"></super-select>
+
+
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <div class="profile-add-edit-btn-group flex-row-between-center super-gap-05">
+      <super-button superButtonCustomClass="form-cancel-btn" [superButtonLabel]="staticText?.common?.cancel_btn"
+        mat-dialog-close [superButtonType]="buttonTypeProps.STROKED"></super-button>
+
+      <super-button [superButtonLabel]="staticText?.common?.submit_btn" cdkFocusInitial
+        (superButtonEvent)="submitForm()"></super-button>
+    </div>
+  </mat-dialog-actions>
+</div>

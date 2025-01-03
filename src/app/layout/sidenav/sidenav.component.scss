@@ -1,0 +1,59 @@
+@use 'break-point' as *;
+
+.super-sidenav-container {
+  margin: 2rem;
+  margin-right: 0;
+
+  @include screen-is(mobile) {
+    margin: 0px;
+  }
+
+  .sidenav-mobile {
+    position: absolute;
+    background: #0000005c;
+    height: 100%;
+    width: 50%;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+
+  .super-sidenav-card {
+    min-height: 35rem;
+
+    @include screen-is(mobile) {
+      height: 100%;
+    }
+
+    .mat-mdc-card-content {
+      padding: 0px !important;
+    }
+
+    .super-sidenav-menu-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .super-sidenav-menu {
+        color: var(--super-theme-primary-font-text-color);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        font-weight: 500;
+        height: 3rem;
+        cursor: pointer;
+        padding: 0 10px;
+
+        &.super-menu-active {
+          color: var(--super-theme-secondary-font-text-color);
+          background-color: var(--super-theme-menu-active-hover-color);
+          border-right: 4px solid var(--super-theme-secondary-font-text-color);
+        }
+      }
+    }
+  }
+
+}

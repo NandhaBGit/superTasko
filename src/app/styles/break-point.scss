@@ -1,0 +1,84 @@
+
+// Default breakpoints
+$tiny-mobile: 389.98px;
+$min-mobile: 480px;
+$max-mobile: 767.98px;
+$min-tablet: 768px;
+$max-tablet: 1023.98px;
+$min-desktop: 1024px;
+$max-small-desktop: 1439.98px;
+$min-large-desktop: 1440px;
+
+// Breakpoint mixins to control view-port specific styles
+@mixin screen-is($size) {
+  @if $size == tiny-mobile {
+    @media (max-width: $tiny-mobile) {
+      @content;
+    }
+  } @else if $size == small-mobile {
+    @media (max-width: $min-mobile) {
+      @content;
+    }
+  } @else if $size == mobile {
+    @media (max-width: $max-mobile) {
+      @content;
+    }
+  } @else if $size == tablet {
+    @media (min-width: $min-tablet) and (max-width: $max-tablet) {
+      @content;
+    }
+  } @else if $size == large-tablet {
+    @media (max-width: $min-desktop) and (min-width: $min-desktop) {
+      @content;
+    }
+  } @else if $size == desktop {
+    @media (min-width: $min-desktop) {
+      @content;
+    }
+  } @else if $size == small-desktop {
+    @media (min-width: $min-desktop) and (max-width: $max-small-desktop) {
+      @content;
+    }
+  } @else if $size == large-desktop {
+    @media (min-width: $min-large-desktop) {
+      @content;
+    }
+  } @else {
+    @error 'Unknown size #{$size}';
+  }
+}
+
+@mixin screen-is-not($size) {
+  
+  @if $size == tiny-mobile {
+    @media (min-width: $tiny-mobile) {
+      @content;
+    }
+  } @else if $size == small-mobile {
+    @media (min-width: $min-mobile) {
+      @content;
+    }
+  } @else if $size == mobile {
+    @media (min-width: $min-tablet) {
+      @content;
+    }
+  } @else if $size == tablet {
+    @media (min-width: $min-desktop) and (max-width: $max-mobile) {
+      @content;
+    }
+  } @else if $size == desktop {
+    @media (max-width: $max-tablet) {
+      @content;
+    }
+  } @else if $size == small-desktop {
+    @media (min-width: $min-large-desktop) and (max-width: $max-tablet) {
+      @content;
+    }
+  } @else if $size == large-desktop {
+    @media (max-width: $max-small-desktop) {
+      @content;
+    }
+  } @else {
+    @error 'Unknown size #{$size}';
+  }
+}

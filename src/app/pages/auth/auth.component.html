@@ -1,0 +1,55 @@
+<div class="auth-container flex-column-center-center">
+  <div class="auth-login-register-group">
+    <mat-card class="auth-card">
+      <mat-card-content>
+        <div class="auth-card-section-group">
+          <mat-grid-list [cols]="_common.isMobile()  ? 1 : staticText?.auth?.cols"
+            [rowHeight]="staticText?.auth?.gridRowHeight">
+
+            <!-- Login / Register Form -->
+            <mat-grid-tile>
+              <div class="auth-form-group">
+                <!-- Register Component -->
+                <ng-container *ngIf="showRegisterForm; else showLoginForm">
+                  <super-register></super-register>
+                  <div
+                    class="auth-login-register-nav-group flex-row-center-center super-text-primary super-fw-semi-bold">
+                    <p [innerHtml]="staticText?.auth?.register?.login_nav?.text"></p>&nbsp;
+                    <a [routerLink]="['/auth/login']"
+                      (click)="routeAuthPages('register')">{{staticText?.auth?.register?.login_nav?.nav_text}}</a>
+                  </div>
+                </ng-container>
+
+                <!-- Login Component -->
+                <ng-template #showLoginForm>
+                  <div class="auth-login-form">
+                    <super-login></super-login>
+                    <div
+                      class="auth-login-register-nav-group flex-row-center-center super-text-primary super-fw-semi-bold">
+                      <p [innerHtml]="staticText?.auth?.login?.register_nav?.text"></p>&nbsp;
+                      <a [routerLink]="['/auth/register']"
+                        (click)="routeAuthPages('login')">{{staticText?.auth?.login?.register_nav?.nav_text}}</a>
+                    </div>
+                  </div>
+                </ng-template>
+              </div>
+            </mat-grid-tile>
+
+            <!-- Carousel -->
+            <mat-grid-tile class="auth-carousel-container" *ngIf="!_common.isMobile()">
+              <div class="auth-carousel-group">
+                <img
+                  [src]="toggleCarousel ? staticText?.auth?.carousel_images?.src_alternate : staticText?.auth?.carousel_images?.src"
+                  [alt]="staticText?.auth?.carousel_images?.alt"
+                  [style.width]="staticText?.auth?.carousel_images?.width"
+                  [style.height]="staticText?.auth?.carousel_images?.height">
+
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>

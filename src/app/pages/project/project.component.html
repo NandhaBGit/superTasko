@@ -1,0 +1,117 @@
+<div class="super-project-container">
+  <div class="super-project-group super flex-column-center super-gap-1">
+    <div class="super-project-add-group flex-row-end-center">
+      <div class="super-project-add-btn flex-center-center super-curs-pointer" (click)="openProjectForm()">
+        <mat-icon fontIcon="add"></mat-icon>
+      </div>
+    </div>
+    <div class="flex-row-between-center super-margin-x-1">
+      <h1 class="super-text-primary super-fs-larger super-margin-x-1 super-margin-0">
+        {{staticText?.layout?.project?.pending_title |
+        titlecase}}&nbsp;({{projectPendinglist?.length}})</h1>
+
+
+      <h1 class="super-text-primary super-fs-larger super-margin-x-1 super-margin-0">
+        {{staticText?.layout?.project?.completed_title |
+        titlecase}}&nbsp;({{projectCompletedlist?.length}})</h1>
+
+    </div>
+
+    <div class="projectlistGroup" cdkDropListGroup>
+      <div cdkDropList [cdkDropListData]="projectPendinglist" class="project-inprogress-list"
+        (cdkDropListDropped)="drop($event)">
+        <ng-container *ngIf="projectPendinglist.length > 0; else emptyDargSection">
+          @for(project of projectPendinglist; track project; let projectIndex = $index, count = $count){
+          <div class="project-inprogress-section super-p-2" cdkDrag>
+            <mat-card matRipple class="projectListCard super-curs-move"
+              [style.super-dragCard-style]="projectDragStatus">
+              <mat-card-content>
+                <div class="project-group flex-column-between super-gap-1">
+                  <div class="flex-row-between-center super-margin-y-1">
+                    <h2 class="super-text-primary super-fs-medium ">{{project?.title}}</h2>
+                    <div class="project-card-actions-group flex-row-between-center">
+                      <ng-container *ngIf="project?.actions?.edit">
+                        <mat-icon matRipple class="super-card-action-edit-style super-curs-pointer" fontIcon="edit"
+                          (click)="editProject(projectIndex,true,project)"></mat-icon>
+                      </ng-container>
+                      <ng-container *ngIf="project?.actions?.delete">
+                        <mat-icon matRipple class="super-card-action-delete-style super-curs-pointer" fontIcon="delete"
+                          (click)="deleteProject(project,true)"></mat-icon>
+                      </ng-container>
+
+                    </div>
+                  </div>
+                  <p class="super-text-line-limit-3 super-margin-y-1">{{project?.description}}</p>
+                  <div class="project-status-group flex-row-start-center super-margin-y-1">
+                    <div class="project-priority-status super-priority-tag {{project?.priority}}">
+                      <h3 class="tag-text">{{project?.priority | titlecase}}</h3>
+                    </div>
+
+                    <div class="project-status super-status-tag {{project?.status}}">
+                      <h3 class="tag-text">{{project?.status | titlecase}}</h3>
+                    </div>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          }
+        </ng-container>
+
+
+
+        <ng-template #emptyDargSection>
+          <div class="projectListCard super-dragCard-style"></div>
+        </ng-template>
+      </div>
+
+
+      <div cdkDropList [cdkDropListData]="projectCompletedlist" class="project-completed-list"
+        (cdkDropListDropped)="drop($event)">
+        <ng-container *ngIf="projectCompletedlist.length > 0; else emptyDargSection">
+          @for(project of projectCompletedlist; track project; let projectIndex = $index, count = $count){
+
+          <div class="project-completed-section super-p-2" cdkDrag>
+            <mat-card matRipple class="projectListCard super-curs-move"
+              [style.super-dragCard-style]="projectDragStatus">
+              <mat-card-content>
+                <div class="project-group flex-column-between super-gap-1">
+                  <div class="flex-row-between-center super-margin-y-1">
+                    <h2 class="super-text-primary super-fs-medium ">{{project?.title}}</h2>
+                    <div class="project-card-actions-group flex-row-between-center">
+                      <ng-container *ngIf="project?.actions?.edit">
+                        <mat-icon matRipple class="super-card-action-edit-style super-curs-pointer" fontIcon="edit"
+                          (click)="editProject(projectIndex,false,project)"></mat-icon>
+                      </ng-container>
+                      <ng-container *ngIf="project?.actions?.delete">
+                        <mat-icon matRipple class="super-card-action-delete-style super-curs-pointer" fontIcon="delete"
+                          (click)="deleteProject(project.id,false)"></mat-icon>
+                      </ng-container>
+                    </div>
+                  </div>
+                  <p class="super-text-line-limit-3 super-margin-y-1">{{project?.description}}</p>
+                  <div class="project-status-group flex-row-start-center super-margin-y-1">
+                    <div class="project-priority-status super-priority-tag {{project?.priority}}">
+                      <h3 class="tag-text">{{project?.priority | titlecase}}</h3>
+                    </div>
+
+                    <div class="project-status super-status-tag {{project?.status}}">
+                      <h3 class="tag-text">{{project?.status | titlecase}}</h3>
+                    </div>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          }
+        </ng-container>
+
+
+        <ng-template #emptyDargSection>
+          <div class="projectListCard super-dragCard-style"></div>
+        </ng-template>
+      </div>
+
+    </div>
+  </div>
+</div>
